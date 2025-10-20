@@ -122,10 +122,11 @@ class FirebaseDatabase:
         try:
             docs = self.requests_collection.where(
                 'status', '==', 'pending'
-            ).order_by(
-                'created_at', direction=firestore.Query.DESCENDING
             ).stream()
-            return [doc.to_dict() for doc in docs]
+            results = [doc.to_dict() for doc in docs]
+            # Sort in Python to avoid Firebase index requirement
+            results.sort(key=lambda x: x.get('created_at', ''), reverse=True)
+            return results
         except Exception as e:
             print(f"⚠️  Error getting pending requests: {e}")
             return []
