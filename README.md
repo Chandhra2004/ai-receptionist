@@ -190,15 +190,16 @@ Result: ✅ Handled automatically with learned knowledge
 ```
 frontdesk-ai/
 ├── backend/
-│   ├── main.py                 # FastAPI application
+│   ├── main.py
+|   ├── run.py                 # FastAPI application
 │   ├── ai_agent.py            # AI agent logic with OpenAI
 │   ├── livekit_handler.py     # LiveKit call simulation
-│   ├── database.py            # Firebase Firestore interface
+│   ├── database_firebase.py   # Firebase Firestore interface
 │   ├── models.py              # Pydantic models
 │   ├── config.py              # Configuration management
 │   ├── init_mock_data.py      # Mock data initialization
-│   ├── requirements.txt       # Python dependencies
-│   └── .env.example           # Environment template
+│   └── requirements.txt       # Python dependencies
+│   
 │
 ├── frontend/
 │   ├── src/
